@@ -1,0 +1,16 @@
+set terminal postscript eps size 8,6 enhanced color font 'Helvetica,30' linewidth 2
+set output 'zns_bands.eps'
+
+# Fermi level
+Eref = 6.4248
+set xrange [0.0:6.0240]
+set yrange [-4:4]
+set xlabel 'Wave vector'
+set ylabel 'Energy / eV'
+# x-coordinates from plotband.x (file zns_sphalerite_plotband.out)
+set xtics ("{/Symbol G}" 0.0, "X" 0.9931, "W" 1.4897, "K" 1.8408, "{/Symbol G}" 2.8942, "L" 3.7543, "U" 4.3624, "W" 4.7136, "L" 5.4158, "K" 6.0240) scale 0
+set grid xtics
+set title 'Sphalerite-ZnS Band Structure'
+
+plot "zns_bands.gnu" using 1:(column(2)-Eref) with lines notitle
+

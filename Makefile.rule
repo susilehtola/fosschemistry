@@ -1,0 +1,5 @@
+DOCSOURCES=$(wildcard *.md)
+DOCS=$(DOCSOURCES:.md=.pdf)
+
+%.pdf: %.md
+	pandoc -f gfm $< -o $@

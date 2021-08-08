@@ -1,0 +1,38 @@
+&CONTROL
+  ! scf -> single-point energy calculation only
+  calculation='scf'
+  prefix='zns' ! Output files are named according to prefix
+/
+&SYSTEM
+  space_group=216 ! Space group number
+  ! For space groups with two different origins, be sure to
+  ! choose the origin that matches the input coordinates:
+  ! origin_choice=(1 or 2) (see International Tables of Crystallography A)
+  a=5.4093 ! Lattice parameter a in angstroms
+  nat=2    ! Number of atoms in the asymmetric unit
+  ntyp=2   ! Number of different atom types. Here, Zn and S.
+  ! The following plane-wave cutoffs depend on the used pseudopotentials.
+  ! The ultrasoft GBRV pseudopotentials have been designed for the following cutoffs.
+  ecutwfc=40  ! Kinetic energy cutoff for wavefunctions (Ry)
+  ecutrho=200 ! Kinetic energy cutoff for charge density and potential (Ry)
+/
+&ELECTRONS
+/
+&IONS
+/
+&CELL
+/
+! atom_type atom_mass_in_amu pseudopotential
+! Atomic masses are only relevant for phonon calculations or
+! ab initio molecular dynamics.
+ATOMIC_SPECIES
+  Zn 65.38 zn_pbe_v1.uspp.F.UPF
+  S  32.065 s_pbe_v1.4.uspp.F.UPF
+! Coordinates of the atoms in the asymmetric unit
+ATOMIC_POSITIONS crystal_sg
+Zn 0.00000 0.00000 0.00000
+S  0.25000 0.25000 0.25000
+! Monkhorst-Pack type k-mesh for sampling the reciprocal space.
+K_POINTS automatic 
+2 2 2  0 0 0 
+

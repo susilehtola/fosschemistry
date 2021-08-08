@@ -1,0 +1,13 @@
+     Input file > Reading   20 bands at    226 k-points
+Range: -118.3950   23.1240eV  Emin, Emax, [firstk, lastk] > high-symmetry point:  0.0000 0.0000 0.0000   x coordinate   0.0000
+high-symmetry point: -0.9931 0.0000 0.0000   x coordinate   0.9931
+high-symmetry point: -0.9931 0.4966 0.0000   x coordinate   1.4897
+high-symmetry point: -0.7448 0.7448 0.0000   x coordinate   1.8408
+high-symmetry point:  0.0000 0.0000 0.0000   x coordinate   2.8942
+high-symmetry point: -0.4966 0.4966 0.4966   x coordinate   3.7543
+high-symmetry point: -0.9931 0.2483 0.2483   x coordinate   4.3624
+high-symmetry point: -0.9931 0.4966 0.0000   x coordinate   4.7136
+high-symmetry point: -0.4966 0.4966 0.4966   x coordinate   5.4158
+high-symmetry point: -0.7448 0.7448 0.0000   x coordinate   6.0240
+output file (gnuplot/xmgr) > bands in gnuplot/xmgr format written to file zns_bands.gnu                                                                                                                                                                                                                                                   
+output file (ps) > Efermi > deltaE, reference E (for tics) bands in PostScript format written to file zns_bands.ps                                                                                                                                                                                                                                                    

@@ -1,0 +1,56 @@
+
+     Program BANDS v.6.7MaX starts on 19Jul2021 at 23:19:27 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI & OpenMP), running on       1 processor cores
+     Number of MPI processes:                 1
+     Threads/MPI process:                     1
+
+     MPI processes distributed on     1 nodes
+
+     Reading xml data from directory:
+
+     ./zns.save/
+
+     IMPORTANT: XC functional enforced from input :
+     Exchange-correlation= PBE
+                           (   1   4   3   4   0   0   0)
+     Any further DFT definition will be discarded
+     Please, verify this is what you really want
+
+
+     G-vector sticks info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Sum         745     583    187                13107     9377    1591
+
+     Reading collected, re-writing distributed wavefunctions
+     high-symmetry point:  0.0000 0.0000 0.0000   x coordinate   0.0000
+     high-symmetry point: -0.9931 0.0000 0.0000   x coordinate   0.9931
+     high-symmetry point: -0.9931 0.4966 0.0000   x coordinate   1.4897
+     high-symmetry point: -0.7448 0.7448 0.0000   x coordinate   1.8408
+     high-symmetry point:  0.0000 0.0000 0.0000   x coordinate   2.8942
+     high-symmetry point: -0.4966 0.4966 0.4966   x coordinate   3.7543
+     high-symmetry point: -0.9931 0.2483 0.2483   x coordinate   4.3624
+     high-symmetry point: -0.9931 0.4966 0.0000   x coordinate   4.7136
+     high-symmetry point: -0.4966 0.4966 0.4966   x coordinate   5.4158
+     high-symmetry point: -0.7448 0.7448 0.0000   x coordinate   6.0240
+
+     Plottable bands (eV) written to file zns_bands.dat.gnu
+     Bands written to file zns_bands.dat
+
+     BANDS        :      0.94s CPU      1.40s WALL
+
+
+   This run was terminated on:  23:19:28  19Jul2021            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=

@@ -1,0 +1,65 @@
+# echo input file to output
+echo
+title "Transplatin"
+memory total 4 gb
+scratch_dir /tmp
+ 
+# Charge of the system
+charge 0
+ 
+# XYZ coordinates in Angstrom units 
+# Automatic symmetry detection enabled (default tol 0.01). Disable with noautosym.
+geometry units angstroms autosym 0.1
+ Pt                 0.00000000    0.00000000    0.00000000
+ Cl                 2.27999997   -0.00036653    0.00000000
+ Cl                -2.27999997    0.00036653    0.00000000
+ N                 -0.00031991   -1.98999997    0.00000000
+ H                  0.46944690   -2.32340883   -0.81740913
+ H                  0.46944690   -2.32340883    0.81740913
+ N                  0.00031991    1.98999997    0.00000000
+ H                 -0.46944690    2.32340883   -0.81740913
+ H                 -0.46944690    2.32340883    0.81740913
+ H                  0.94318252    2.32318174    0.00000000
+ H                 -0.94318252   -2.32318174    0.00000000
+end
+ 
+dft
+  # Exchange-correlation functional
+  xc pbe0
+  # Semidirect SCF. Cache integrals in memory, but do not use disk
+  # 130 megawords is ~1000 megabytes for 64-bit machines
+  semidirect memsize 130000000 filesize 0
+  # For completely direct SCF without caching, use
+  #direct
+
+  # Spin multiplicity 2S + 1, where S = 0, 1/2, 1, 3/2, ...
+  mult 1
+  # For open-shell singlet calculation, add
+  #odft
+
+  # Reduce output during geometry optimization
+  noprint "final vectors analysis"
+ 
+  # Increase the number of SCF iterations
+  iterations 100
+end
+
+# Basis set definitions
+basis spherical
+  * library def2-tzvp
+end
+ecp
+  Pt library def2-ecp
+end
+ 
+# Options for the geometry optimizer
+driver
+  # Max 100 optimization steps
+  maxiter 100
+  # Print XYZ coordinates of each step
+  xyz
+end
+ 
+# Optimize geometry
+task dft optimize
+

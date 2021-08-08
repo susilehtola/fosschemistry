@@ -1,0 +1,32 @@
+memory 8 gb
+
+molecule {
+symmetry c1
+Cr        0.48028725377749    0.32716919378518    0.12128381663197
+O         1.51332165941332    1.03448648135578   -0.78955553051410
+O        -0.57831537187616    1.32157128739802    0.65757817076212
+F        -0.29602430869141   -0.85637252313759   -0.76598418135575
+F         1.28459076737678   -0.35182443940140    1.41848772447575
+}
+
+set basis STO-3G
+set geom_maxiter 250
+
+# Use a (75,302) quadrature grid
+set dft_radial_points 75
+set dft_spherical_points 302
+
+# Very tight geometry optimization
+set g_convergence gau_verytight
+# Increase allowed number of geometry optimization steps
+set geom_maxiter 250
+
+# Use the Hueckel type guess
+set guess huckel
+
+my_dft = {
+    "name": "my lda",
+    "x_functionals": {"lda_x": {}},
+    "c_functionals": {"lda_c_pw": {}}
+}
+optimize('scf', dft_functional=my_dft)

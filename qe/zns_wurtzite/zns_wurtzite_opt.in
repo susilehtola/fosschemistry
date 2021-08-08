@@ -1,0 +1,45 @@
+&CONTROL
+  ! vc-relax -> optimization of lattice parameters and coordinates
+  ! within the constraints of the space group symmetry. In the
+  ! wurtzite structure, there are four free parameters:
+  ! a, c, and the z-coordinates of the Zn and S atoms.
+  calculation='vc-relax'
+  prefix='zns' ! Output files are named according to prefix
+/
+&SYSTEM
+  space_group=186 ! Space group number
+  ! For space groups with two different origins, be sure to
+  ! choose the origin that matches the input coordinates:
+  ! origin_choice=(1 or 2) (see International Tables of Crystallography A)
+  a=3.811  ! Lattice parameter a in angstroms
+  c=6.234  ! Lattice parameter c in angstroms
+  nat=2    ! Number of atoms in the asymmetric unit
+  ntyp=2   ! Number of different atom types. Here, Zn and S.
+  ! The following plane-wave cutoffs depend on the used pseudopotentials.
+  ! The ultrasoft GBRV pseudopotentials have been designed for the following cutoffs.
+  ecutwfc=40  ! Kinetic energy cutoff for wavefunctions (Ry)
+  ecutrho=200 ! Kinetic energy cutoff for charge density and potential (Ry)
+/
+&ELECTRONS
+/
+&IONS
+/
+&CELL
+/
+! atom_type atom_mass_in_amu pseudopotential
+! Atomic masses are only relevant for phonon calculations or
+! ab initio molecular dynamics.
+ATOMIC_SPECIES
+  Zn 65.38 zn_pbe_v1.uspp.F.UPF
+  S  32.065 s_pbe_v1.4.uspp.F.UPF
+! Coordinates of the atoms in the primitive cell (asymmetric unit only).
+! Note how the coordinates 0.33333 and 0.66667 in the original CIF have
+! been converted to exact values 1/3 and 2/3 so that QE can properly
+! handle the symmetry.
+ATOMIC_POSITIONS crystal_sg
+Zn 1/3 2/3 0.00000
+S  1/3 2/3 0.38500
+! Monkhorst-Pack type k-mesh for sampling the reciprocal space.
+K_POINTS automatic 
+8 8 4  0 0 0 
+

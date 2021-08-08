@@ -1,0 +1,6 @@
+&bands
+  prefix='zns'
+  filband='zns_bands.dat'
+  lsym=.false.
+/
+
