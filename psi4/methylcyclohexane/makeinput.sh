@@ -5,7 +5,7 @@
 for((ibasis=0;ibasis<${#bases[@]};ibasis++)); do
     basis=${bases[ibasis]}
     basfname=${basfnames[ibasis]}
-    for((iconf=1;iconf<=nconf;iconf++)); do
+    for((iconf=0;iconf<nconf;iconf++)); do
         run="${basfname}_${iconf}"
 
         # Generate input

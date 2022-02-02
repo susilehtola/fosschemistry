@@ -10,4 +10,4 @@ for f in *.out; do
     fi
 done
 
-cat conformer{1,2,3,4,5,6}.xyz > conformers.xyz
+cat conformer{0,1,2,3}.xyz > conformers.xyz

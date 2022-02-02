@@ -7,7 +7,7 @@ for((ibasis=0;ibasis<${#bases[@]};ibasis++)); do
     basfname="${basfnames[ibasis]}"
 
     # Number of basis functions
-    if [[ -f ${basfname}_1.out ]]; then
+    if [[ -f ${basfname}_0.out ]]; then
         nnbas=$(grep "Number of basis function:" ${basfname}_1.out|wc -l)
         if((nnbas==2)); then
             # Orbital basis, auxiliary basis
@@ -22,7 +22,7 @@ for((ibasis=0;ibasis<${#bases[@]};ibasis++)); do
 
     # Extract conformer energies
     Es=""
-    for((iconf=1;iconf<=nconf;iconf++)); do
+    for((iconf=0;iconf<nconf;iconf++)); do
         logfile="${basfname}_${iconf}.out"
         if [[ -f "$logfile" ]]; then
             E=$(grep "@DF-RKS Final Energy:" "$logfile" | tail -n 1| awk '{print $NF}')
@@ -33,7 +33,7 @@ for((ibasis=0;ibasis<${#bases[@]};ibasis++)); do
     done
     Es=( $Es )
     
-    # Calculate energy differences, now numbering from 0
+    # Calculate energy differences
     dEs=()
     for((iconf=1;iconf<nconf;iconf++)); do
         if [[ ${Es[iconf]} != "NaN" && ${Es[0]} != "NaN" ]]; then
@@ -43,6 +43,6 @@ for((ibasis=0;ibasis<${#bases[@]};ibasis++)); do
         fi
     done
 
-    printf "%s\t%4i\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n" "${basis}" $nbas ${dEs[@]}
+    printf "%s\t%4i\t%.2f\t%.2f\t%.2f\n" "${basis}" $nbas ${dEs[@]}
 done
 
